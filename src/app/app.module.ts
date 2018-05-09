@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // --- MATERIAL
 
-import { MaterialModule } from './material-module';
+import { MaterialModule } from './material/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // --- SERVICES
@@ -25,19 +25,23 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SelectorComponent } from './pages/selector/selector.component';
+import { MoviePageComponent } from './pages/movie-page/movie-page.component';
+
 
 // --- COMPONENTS
 
 import { AppComponent } from './app.component';
+import { MovieComponent } from './components/movie/movie.component';
 
 
 // --- ROUTES
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService] },
+  { path: '', component: HomePageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
-  { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]}
+  { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]},
+  { path: 'movies', component: MoviePageComponent, canActivate: [RequireUserGuardService]}
 ];
 
 @NgModule({
@@ -46,7 +50,9 @@ const routes: Routes = [
     HomePageComponent,
     SignupPageComponent,
     LoginPageComponent,
-    SelectorComponent
+    SelectorComponent,
+    MoviePageComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
