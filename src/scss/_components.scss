@@ -1,6 +1,9 @@
+@import './scss/_variables.scss';
+
 a {
     text-decoration: none;
-    color: inherit;
+    color: $color-dark;
+    margin: 0 10px;
 }
 
 .btn {

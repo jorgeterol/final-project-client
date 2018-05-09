@@ -15,6 +15,12 @@
   color: $color-dark;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #site-footer {
   flex: 1 0 auto;
   text-align: end;
@@ -29,7 +35,6 @@
 
 .container {
   margin: 0 20px;
-
 }
 
 .section {

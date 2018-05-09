@@ -14,6 +14,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthService } from './services/auth.service';
 
+// --- GUARDS
+import { InitAuthGuardService } from './guards/init-auth-guard.service';
+import { RequireAnonGuardService } from './guards/require-anon-guard.service';
+import { RequireUserGuardService } from './guards/require-user-guard.service';
+
 // --- PAGES
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -28,9 +33,9 @@ import { AppComponent } from './app.component';
 // --- ROUTES
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'signup', component: SignupPageComponent },
-  { path: 'login', component: LoginPageComponent }
+  { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService] },
+  { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
+  { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]}
 ];
 
 @NgModule({
@@ -48,7 +53,12 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    InitAuthGuardService,
+    RequireAnonGuardService,
+    RequireUserGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
