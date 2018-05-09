@@ -32,7 +32,7 @@ export class LoginPageComponent implements OnInit {
       };
       this.authService.login(user)
       .then((result) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/selector']);
       })
       .catch((err) => {
         this.error = err.error.code; // :-)

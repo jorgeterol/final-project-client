@@ -24,6 +24,7 @@ import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SelectorComponent } from './pages/selector/selector.component';
 
 // --- COMPONENTS
 
@@ -35,7 +36,8 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
-  { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]}
+  { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
+  { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]}
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ const routes: Routes = [
     AppComponent,
     HomePageComponent,
     SignupPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

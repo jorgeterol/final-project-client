@@ -32,7 +32,7 @@ export class SignupPageComponent implements OnInit {
       };
       this.authService.signup(user)
         .then((result) => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/selector']);
         })
         .catch((err) => {
           this.error = err.error.code; // :-)
