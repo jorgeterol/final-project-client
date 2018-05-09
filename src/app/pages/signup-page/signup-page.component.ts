@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
@@ -10,8 +12,10 @@ export class SignupPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
+  username: string;
+  password: string;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,17 +26,19 @@ export class SignupPageComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      // this.someService.method(... data ...)
-      //   .then((result) => {
-      //     // ... handle result, reset form, etc...
-      //     // ... navigate with this.router.navigate(['...'])
-      //     // ... maybe turn this to false if your're staying on the page - this.processing = false;
-      //   })
-      //   .catch((err) => {
-      //     this.error = err.error.error; // :-)
-      //     this.processing = false;
-      //     this.feedbackEnabled = false;
-      //   });
+      const user = {
+        username: this.username,
+        password: this.password
+      };
+      this.authService.signup(user)
+        .then((result) => {
+          this.router.navigate(['/']);
+        })
+        .catch((err) => {
+          this.error = err.error.code; // :-)
+          this.processing = false;
+          this.feedbackEnabled = false;
+        });
     }
   }
 }
