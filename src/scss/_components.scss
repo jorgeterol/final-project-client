@@ -4,5 +4,10 @@
     padding: 10px 15px;
     background-color: transparent;
     margin: 10px;
+    color: inherit;
+    text-decoration: none;
 }
 
+.is-processing {
+	opacity: 0.5;
+}

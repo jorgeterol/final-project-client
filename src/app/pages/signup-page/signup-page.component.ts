@@ -20,8 +20,8 @@ export class SignupPageComponent implements OnInit {
     console.log(form);
     this.error = '';
     this.feedbackEnabled = true;
-    // if (form.valid) {
-    //   this.processing = true;
+    if (form.valid) {
+      this.processing = true;
       // this.someService.method(... data ...)
       //   .then((result) => {
       //     // ... handle result, reset form, etc...
@@ -33,7 +33,6 @@ export class SignupPageComponent implements OnInit {
       //     this.processing = false;
       //     this.feedbackEnabled = false;
       //   });
-    // }
+    }
   }
 }
-

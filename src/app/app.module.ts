@@ -11,6 +11,7 @@ import { MaterialModule } from './material-module';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 // --- COMPONENTS
 
@@ -21,14 +22,16 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'signup', component: SignupPageComponent }
+  { path: 'signup', component: SignupPageComponent },
+  { path: 'login', component: LoginPageComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
