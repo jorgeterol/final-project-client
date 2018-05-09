@@ -1,0 +1,18 @@
+@import '../../../scss/_variables.scss';
+
+.signup-page {
+    @include flex-center;
+    flex-direction: column;   
+}
+
+.field {
+    @include flex-center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.submit {
+    @include flex-center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

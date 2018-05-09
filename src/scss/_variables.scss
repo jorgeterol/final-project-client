@@ -11,3 +11,9 @@ $color-grey-light-2:#A7B9BF;
     padding-top: $px;
     margin-bottom: $px;
 }
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
