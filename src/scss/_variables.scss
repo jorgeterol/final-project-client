@@ -1,0 +1,13 @@
+$color-white:#FFFFFF;
+$color-dark: #333;
+$color-green-dark-1:#2A4A4A;
+$color-green-dark-2:#4DA190;
+$color-green-light-1:#2CD5AB;
+$color-green-light-2:#43E1BA;
+$color-grey-light-1:#D1DADC;
+$color-grey-light-2:#A7B9BF;
+
+@mixin padding-top-margin-bottom($px) {
+    padding-top: $px;
+    margin-bottom: $px;
+}

@@ -1,0 +1,42 @@
+@import './scss/_variables.scss';
+
+.site {
+  margin: 10% 10%;
+  min-height: 500px;
+  background-color: $color-white;
+  box-shadow: $color-dark;
+}
+
+#site-header {
+  padding: 10px 0;
+  color: white;
+  background: #111;
+}
+
+#site-footer {
+  color: white;
+  padding: 10px 0;
+  background: #111;
+}
+
+#site-main {
+  margin-bottom: 60px;
+  min-height: 80%;
+}
+
+.container {
+  margin: 0 20px;
+
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+}

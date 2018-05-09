@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import './scss/_layout.scss';
+@import './scss/_variables.scss';
+@import './scss/_typography.scss';
+@import './scss/_components.scss';
+
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right bottom, $color-green-light-2, $color-green-dark-1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color-dark;
+  min-height: 100vh;
+}
