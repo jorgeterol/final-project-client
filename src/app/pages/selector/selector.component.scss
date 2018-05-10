@@ -1,17 +1,17 @@
 @import '../../../scss/_variables.scss';
 
 .selector {
-
+    
     &__title {
         @include padding-top-margin-bottom(20px);
         text-align: center;
     }
-
+    
     &__text {
         @include padding-top-margin-bottom(20px);
         text-align: justify;
     }
-
+    
     &__buttons {
         display: flex;
         justify-content: center;
