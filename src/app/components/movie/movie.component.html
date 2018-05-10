@@ -1,17 +1,38 @@
-<select name="text">
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value="" selected></option> -->
-  <!-- <option value="" selected></option> -->
-  <!-- <option value="" selected></option> -->
-  <!-- <option value="" selected></option> -->
-  <!-- <option value="" selected></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-  <!-- <option value=""></option> -->
-</select>
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <div class="movie-preferences">
+    <div class="movie-preferences__forms">
+      <mat-form-field class="full-width">
+        <mat-select [(ngModel)]="genre" #genreField="ngModel" name="genre" placeholder="Genre">
+          <mat-option *ngFor="let genre of genres" [value]="genre.value" [disabled]="processing">
+            {{ genre.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" min="0" max="10" placeholder="Min.Rating"
+          [disabled]="processing" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-select [(ngModel)]="language" #languageField="ngModel" name="language" placeholder="Language">
+          <mat-option *ngFor="let language of languages" [value]="language.value" [disabled]="processing">
+            {{ language.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" min="0" max="10" placeholder="Year of release"
+          [disabled]="processing" />
+      </mat-form-field>
+
+
+    </div>
+    <div class="movie-preferences__button">
+      <div class="field submit">
+        <button class="btn" type="submit" [disabled]="processing">Search</button>
+      </div>
+    </div>
+  </div>
+</form>

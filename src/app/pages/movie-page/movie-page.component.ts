@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-movie-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movieService: MoviesService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  handleSubmitForm(params) {
+    this.movieService.getMovies(params)
+    .then(() => {
+      
+    })
+    .catch();
   }
 
 }
