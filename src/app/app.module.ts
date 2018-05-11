@@ -29,6 +29,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SelectorComponent } from './pages/selector/selector.component';
 import { MoviePageComponent } from './pages/movie-page/movie-page.component';
 import { MovieResultPageComponent } from './pages/movie-result-page/movie-result-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 
 // --- COMPONENTS
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]},
   { path: 'movies', component: MoviePageComponent, canActivate: [RequireUserGuardService]},
-  { path: 'movies/result', component: MovieResultPageComponent, canActivate: [RequireUserGuardService]}
+  { path: 'movies/result', component: MovieResultPageComponent, canActivate: [RequireUserGuardService]},
+  { path: '**', component: NotFoundPageComponent}
 ];
 
 @NgModule({
@@ -57,7 +59,9 @@ const routes: Routes = [
     SelectorComponent,
     MoviePageComponent,
     MovieComponent,
-    MovieResultPageComponent
+    MovieResultPageComponent,
+    NotFoundPageComponent,
+
   ],
   imports: [
     BrowserModule,
