@@ -1,0 +1,19 @@
+@import '../../../scss/_variables.scss';
+
+.movie-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__spinner {
+
+    }
+
+    &__movies {
+
+    }
+}
+
+.spinner::ng-deep circle {
+  stroke: $color-green-light-1;
+}

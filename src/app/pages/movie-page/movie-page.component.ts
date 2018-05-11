@@ -20,17 +20,8 @@ export class MoviePageComponent implements OnInit {
   }
 
   handleSubmitForm(params) {
-    this.movieService.getMovies(params)
-    .then((result) => {
-      this.movies = result;
-      console.log(this.movies);
-      this.router.navigate(['/movies/result']);
-    })
-    .catch((err) => {
-      this.error = err.error.code; // :-)
-      this.processing = false;
-      this.feedbackEnabled = false;
-    });
+    this.movieService.saveParameters(params);
+    this.router.navigate(['/movies/result']);
   }
 
 }

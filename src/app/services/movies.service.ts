@@ -5,9 +5,18 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class MoviesService {
 
+  parameters: Object;
   private baseUrl = 'http://localhost:3000';
 
   constructor(private httpClient: HttpClient) { }
+
+  saveParameters(parameters) {
+    return this.parameters = parameters;
+  }
+
+  getParameters() {
+    return this.saveParameters(this.parameters);
+  }
 
   getMovies(parameters): Promise<any> {
     const options = {

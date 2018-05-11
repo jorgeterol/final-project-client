@@ -34,11 +34,12 @@ export class MovieComponent implements OnInit {
   ];
 
   languages = [
-    { value: 'en', viewValue: 'English' },
-    { value: 'es', viewValue: 'Spanish' },
-    { value: 'fr', viewValue: 'French' },
-    { value: 'de', viewValue: 'German' },
-    { value: 'ru', viewValue: 'Russian' }
+    { value: 'en-US', viewValue: 'English' },
+    { value: 'es-ES', viewValue: 'Spanish' },
+    { value: 'fr-FR', viewValue: 'French' },
+    { value: 'de-DE', viewValue: 'German' },
+    { value: 'pt-PT', viewValue: 'Portuguese' },
+    { value: 'ru-RU', viewValue: 'Russian' }
   ];
 
   constructor() {

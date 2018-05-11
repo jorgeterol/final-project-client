@@ -1,3 +1,12 @@
-<p>
-  movie-result-page works!
-</p>
+<div class="movie-results">
+  <div class="movie-results__spinner">
+    <div *ngIf="!movies">
+      <mat-spinner class="spinner"></mat-spinner>
+    </div>
+  </div>
+  <div class="movie-results__movies">
+    <div *ngFor="let movie of movies">
+      {{movie.title}}
+    </div>
+  </div>
+</div>
