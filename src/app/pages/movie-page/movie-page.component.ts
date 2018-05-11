@@ -9,6 +9,11 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MoviePageComponent implements OnInit {
 
+  error: string;
+  processing: boolean;
+  feedbackEnabled: boolean;
+  movies: any;
+
   constructor(private movieService: MoviesService, private router: Router) { }
 
   ngOnInit() {
@@ -16,10 +21,16 @@ export class MoviePageComponent implements OnInit {
 
   handleSubmitForm(params) {
     this.movieService.getMovies(params)
-    .then(() => {
-      
+    .then((result) => {
+      this.movies = result;
+      console.log(this.movies);
+      this.router.navigate(['/movies/result']);
     })
-    .catch();
+    .catch((err) => {
+      this.error = err.error.code; // :-)
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
   }
 
 }

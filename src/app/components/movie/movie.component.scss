@@ -1,6 +1,13 @@
+@import '../../../scss/_variables.scss';
+
 .movie-preferences {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+.spinner::ng-deep circle {
+  stroke: $color-green-light-1;
 }
