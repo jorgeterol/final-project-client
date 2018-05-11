@@ -5,12 +5,36 @@
     justify-content: center;
     align-items: center;
 
-    &__spinner {
-
-    }
 
     &__movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    &__poster{
+      @include padding-top-margin-bottom(20px);
+    }
+    
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      
+      &__title-info {
+        @include padding-top-margin-bottom(20px);
+        display: flex;
+        flex-direction: column;
+      }
+      
+      &__overview {
+        @include padding-top-margin-bottom(20px);
+          text-align: justify;
+        }
+
+      }
     }
 }
 

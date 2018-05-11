@@ -4,9 +4,21 @@
       <mat-spinner class="spinner"></mat-spinner>
     </div>
   </div>
-  <div class="movie-results__movies">
-    <div *ngFor="let movie of movies">
-      {{movie.title}}
+
+  <div *ngIf="movies">
+    <div class="movie-results__movies">
+      <div class="movie-results__movies__poster">
+        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies[index].poster_path}}" alt="Poster">
+      </div>
+      <div class="movie-results__movies__info">
+        <div class="movie-results__movies__info__title-vote">
+          <strong>{{movies[index].title}}</strong> - <strong>{{movies[index].vote_average}}</strong>
+        </div>
+        <div class="movie-results__movies__info__overview">
+          {{movies[index].overview}}
+        </div>
+        <button class="btn" (click)="nextMovie()">Next</button>
+      </div>
     </div>
   </div>
 </div>

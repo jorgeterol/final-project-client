@@ -8,11 +8,13 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MovieResultPageComponent implements OnInit {
 
-  movies: any;
+  movies: Array<object>;
+  movie: any;
   parameters: object;
   error: string;
   processing: boolean;
   feedbackEnabled: boolean;
+  index: number;
 
   constructor(private movieService: MoviesService) { }
 
@@ -20,6 +22,7 @@ export class MovieResultPageComponent implements OnInit {
     this.parameters = this.movieService.getParameters();
     this.movieService.getMovies(this.parameters)
       .then((result) => {
+        this.index = 0;
         this.movies = result;
       })
       .catch((err) => {
@@ -27,6 +30,14 @@ export class MovieResultPageComponent implements OnInit {
         this.processing = false;
         this.feedbackEnabled = false;
       });
+    }
+
+    nextMovie() {
+      if (this.index < 2) {
+        this.index++;
+      } else {
+        this.index = 0;
+      }
   }
 
 }

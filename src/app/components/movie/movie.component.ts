@@ -50,7 +50,6 @@ export class MovieComponent implements OnInit {
   }
 
   submitForm(form) {
-    console.log(form.value);
     if (form.valid) {
       this.processing = true;
       this.parameters = {

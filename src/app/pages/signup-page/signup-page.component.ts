@@ -21,7 +21,6 @@ export class SignupPageComponent implements OnInit {
   }
 
   submitForm(form) {
-    console.log(form);
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid) {
