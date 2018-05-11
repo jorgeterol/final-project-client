@@ -1,18 +1,18 @@
 <div class="movie-results">
   <div class="movie-results__spinner">
-    <div *ngIf="!movies">
+    <div *ngIf="!movies && !nomovies">
       <mat-spinner class="spinner"></mat-spinner>
     </div>
   </div>
 
-  <div *ngIf="movies">
+  <div *ngIf="movies && !nomovies">
     <div class="movie-results__movies">
       <div class="movie-results__movies__poster">
         <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies[index].poster_path}}" alt="Poster">
       </div>
       <div class="movie-results__movies__info">
         <div class="movie-results__movies__info__title-vote">
-          <strong>{{movies[index].title}}</strong> - <strong>{{movies[index].vote_average}}</strong>
+          <strong>{{movies[index].title}}</strong> - <strong>{{movies[index].vote_average}}</strong> - <strong>{{movies[index].release_date}}</strong>
         </div>
         <div class="movie-results__movies__info__overview">
           {{movies[index].overview}}
@@ -21,4 +21,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="!movies && nomovies">
+  <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>
+  <a class="btn" [routerLink]="['/movies']">Go Back</a>
 </div>

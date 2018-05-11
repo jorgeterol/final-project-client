@@ -10,7 +10,7 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" min="0" max="10" placeholder="Min.Rating"
+        <input matInput type="range" name="rating" [(ngModel)]="rating" #ratingField="ngModel" min="0" max="10" placeholder="Min.Rating"
           [disabled]="processing" />
       </mat-form-field>
 

@@ -9,7 +9,7 @@ import { MoviesService } from '../../services/movies.service';
 export class MovieResultPageComponent implements OnInit {
 
   movies: Array<object>;
-  movie: any;
+  nomovies = false;
   parameters: object;
   error: string;
   processing: boolean;
@@ -23,7 +23,11 @@ export class MovieResultPageComponent implements OnInit {
     this.movieService.getMovies(this.parameters)
       .then((result) => {
         this.index = 0;
-        this.movies = result;
+        if (result.length === 0) {
+          this.nomovies = true;
+        } else {
+          this.movies = result;
+        }
       })
       .catch((err) => {
         this.error = err.error.code; // :-)
