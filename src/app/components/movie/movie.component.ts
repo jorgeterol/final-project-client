@@ -13,8 +13,12 @@ export class MovieComponent implements OnInit {
 
   @Output() submitform: EventEmitter<any> = new EventEmitter;
 
+  feedbackEnabled = false;
+  error = null;
   genres: Array<object> = genres;
   languages: Array<object> = languages;
+  invalidRating = false;
+  invalidYear = false;
 
   constructor() {
     this.parameters = {};
@@ -24,6 +28,21 @@ export class MovieComponent implements OnInit {
   }
 
   submitForm(form) {
+
+    if (form.value.rating > 10 || form.value.rating < 0) {
+      this.error = '';
+      this.feedbackEnabled = true;
+      this.invalidRating = true;
+      return;
+    }
+
+    if (form.value.date > 2018) {
+      this.error = '';
+      this.feedbackEnabled = true;
+      this.invalidYear = true;
+      return;
+    }
+
     if (form.valid) {
       this.processing = true;
       this.parameters = {
