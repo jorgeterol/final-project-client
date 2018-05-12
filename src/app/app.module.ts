@@ -36,6 +36,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 
 import { AppComponent } from './app.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { MovieResultComponent } from './components/movie-result/movie-result.component';
 
 
 // --- ROUTES
@@ -61,6 +62,7 @@ const routes: Routes = [
     MovieComponent,
     MovieResultPageComponent,
     NotFoundPageComponent,
+    MovieResultComponent,
 
   ],
   imports: [

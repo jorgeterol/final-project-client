@@ -36,7 +36,7 @@ export class MovieResultPageComponent implements OnInit {
       });
   }
 
-  nextMovie() {
+  handleNextMovie() {
     if (this.index < 2) {
       this.index++;
     } else {
@@ -44,8 +44,7 @@ export class MovieResultPageComponent implements OnInit {
     }
   }
 
-  saveMovie(movie) {
-    console.log(movie)
+  handleSaveMovie(movie) {
     this.movieService.saveMovie(movie);
   }
 }

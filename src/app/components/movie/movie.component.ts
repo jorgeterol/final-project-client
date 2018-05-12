@@ -51,6 +51,7 @@ export class MovieComponent implements OnInit {
         date: form.value.date,
         genre: form.value.genre
       };
+
       this.submitform.emit(this.parameters);
     }
   }
