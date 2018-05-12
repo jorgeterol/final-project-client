@@ -34,14 +34,18 @@ export class MovieResultPageComponent implements OnInit {
         this.processing = false;
         this.feedbackEnabled = false;
       });
-    }
-
-    nextMovie() {
-      if (this.index < 2) {
-        this.index++;
-      } else {
-        this.index = 0;
-      }
   }
 
+  nextMovie() {
+    if (this.index < 2) {
+      this.index++;
+    } else {
+      this.index = 0;
+    }
+  }
+
+  saveMovie(movie) {
+    console.log(movie)
+    this.movieService.saveMovie(movie);
+  }
 }

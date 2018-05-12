@@ -18,6 +18,7 @@
           {{movies[index].overview}}
         </div>
         <button class="btn" (click)="nextMovie()">Next</button>
+        <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Save</button>
       </div>
     </div>
   </div>

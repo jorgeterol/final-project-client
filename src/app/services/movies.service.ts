@@ -27,4 +27,11 @@ export class MoviesService {
       .toPromise();
   }
 
+  saveMovie(movie): any {
+    const options = {
+      withCredentials: true
+    };
+
+    return this.httpClient.post(`${this.baseUrl}/movies/save`, movie, options)
+      .toPromise();  }
 }
