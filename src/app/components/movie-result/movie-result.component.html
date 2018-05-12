@@ -19,12 +19,33 @@
         <div class="movie-results__movies__info__overview">
           {{movies[index].overview}}
         </div>
+        <form (ngSubmit)="submitComment(form, movies[index])" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+          <div class="movie-results">
+            <div class="movie-results__forms">
+        
+              <mat-form-field class="full-width">
+                <input matInput type="text" name="comment" [(ngModel)]="comment" #commentField="ngModel" placeholder="Comment" [disabled]="processing"
+                />
+              </mat-form-field>
+        
+            </div>
+            <div class="movie-results__button">
+              <div class="field submit">
+                <button class="btn" type="submit" [disabled]="processing">Send comment</button>
+              </div>
+            </div>
+          </div>
+        </form>
         <button class="btn" (click)="nextMovie()">Next</button>
         <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Save</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 
 <div *ngIf="!movies && nomovies">
   <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>

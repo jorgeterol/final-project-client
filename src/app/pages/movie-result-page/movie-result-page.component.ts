@@ -47,4 +47,8 @@ export class MovieResultPageComponent implements OnInit {
   handleSaveMovie(movie) {
     this.movieService.saveMovie(movie);
   }
+
+  handleComment(movieAndComment) {
+    this.movieService.saveComment(movieAndComment);
+  }
 }

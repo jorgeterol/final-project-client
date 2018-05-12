@@ -17,19 +17,30 @@ export class MovieResultComponent implements OnInit {
 
   @Output() submitnext: EventEmitter<any> = new EventEmitter;
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
+  @Output() submitcomment: EventEmitter<any> = new EventEmitter;
 
+  movieAndComment: any;
+  comment: string;
   constructor() {}
 
   ngOnInit() {
-    console.log(this.movies);
   }
 
   nextMovie() {
+    this.comment = '';
     this.submitnext.emit();
   }
 
   saveMovie(movie) {
     this.submitsave.emit(movie);
+  }
+
+  submitComment(form, movie) {
+    this.movieAndComment = {
+      movie: movie,
+      comment: form.value.comment
+    };
+    this.submitcomment.emit(this.movieAndComment);
   }
 
 }

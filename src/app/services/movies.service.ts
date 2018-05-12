@@ -34,4 +34,12 @@ export class MoviesService {
 
     return this.httpClient.post(`${this.baseUrl}/movies/save`, movie, options)
       .toPromise();  }
+
+  saveComment(movieAndComment): any {
+    const options = {
+      withCredentials: true
+    };
+
+    return this.httpClient.post(`${this.baseUrl}/movies/comment`, movieAndComment, options)
+      .toPromise();  }
 }
