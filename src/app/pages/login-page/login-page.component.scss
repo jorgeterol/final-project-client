@@ -6,13 +6,15 @@
 }
 
 .field {
-    @include flex-center;
-    flex-direction: column;
+    @include flex-center-column;
     flex-wrap: wrap;
 }
 
 .submit {
-    @include flex-center;
-    flex-direction: column;
+    @include flex-center-column;
     flex-wrap: wrap;
+}
+
+mat-form-field {
+    font-family: inherit;
 }

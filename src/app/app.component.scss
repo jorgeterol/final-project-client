@@ -1,0 +1,22 @@
+@import '../scss/_variables.scss';
+
+
+.site {
+  display: flex;
+  flex-direction: column;
+  margin: 10% 10%;
+  min-height: 500px;
+  background-color: $color-white;
+  box-shadow: $color-black;
+
+    @media only screen and (max-width: 600px) {
+    margin: 0;
+    min-height: 100vh;
+    }
+}
+
+.header {
+  @include padding-top-margin-bottom(10px);
+  display: flex;
+  justify-content: space-between;
+}

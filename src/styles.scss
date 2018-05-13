@@ -1,7 +1,7 @@
 @import './scss/_layout.scss';
 @import './scss/_variables.scss';
 @import './scss/_typography.scss';
-@import './scss/_components.scss';
+@import './scss/_reusables.scss';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* ---- reset ---- */
@@ -16,7 +16,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to right bottom, $color-green-light-2, $color-green-dark-1);
+  background-image: linear-gradient(to right bottom, $color-primary, $color-secundary);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

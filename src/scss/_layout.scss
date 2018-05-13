@@ -1,37 +1,16 @@
 @import './scss/_variables.scss';
 
-.site {
-  display: flex;
-  flex-direction: column;
-  margin: 10% 10%;
-  min-height: 500px;
-  background-color: $color-white;
-  box-shadow: $color-dark;
-
-  @media only screen and (max-width: 600px) {
-    margin: 0;
-    min-height: 100vh;
-}
-
-}
 
 #site-header {
   flex: 1 0 auto;
   padding: 10px;
-  color: $color-dark;
-}
-
-.header {
-  @include padding-top-margin-bottom(10px);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  color: $color-black;
 }
 
 #site-footer {
   flex: 1 0 auto;
   text-align: end;
-  color: $color-dark;
+  color: $color-black;
   padding: 10px;
 }
 

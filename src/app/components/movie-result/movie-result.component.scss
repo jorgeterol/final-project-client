@@ -1,28 +1,25 @@
 @import '../../../scss/_variables.scss';
 
 .movie-results {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    @include flex-center;
 
     &__movies {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+      @include flex-center-column;
+           
+      @media only screen and (min-width: 768px) {
+        flex-direction: row;
+        @include padding-right-left(20px);
+      }
 
     &__poster{
       @include padding-top-margin-bottom(20px);
+      @include padding-right-left(20px);
     }
     
     &__info {
-      display: flex;
+      @include flex-center;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      
+       
       &__title-info {
         @include padding-top-margin-bottom(20px);
         display: flex;
@@ -39,5 +36,9 @@
 }
 
 .spinner::ng-deep circle {
-  stroke: $color-green-light-1;
+  stroke: $color-primary;
+}
+
+mat-form-field {
+    font-family: inherit;
 }

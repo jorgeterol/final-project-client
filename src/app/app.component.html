@@ -1,24 +1,22 @@
 <div class="site">
   <header id="site-header">
-    <div class="container">
-      <div class="header">
-        <div class="header__home">
-          <div *ngIf="anon">
+    <div class="header container">
+      <div class="header__home">
+        <div *ngIf="anon">
           <a [routerLink]="['/']">Home</a>
-          </div>
-          <div *ngIf="!!user">
-          <a [routerLink]="['/selector']">Home</a>
-          </div>
         </div>
-        <div class="header__user-options">
-          <div *ngIf="!!user">
-            <a [routerLink]="['/profile']">Hi, {{user.username}}</a>
-            <a (click)="logout()">Logout</a>
-          </div>
-          <div *ngIf="anon">
-            <a [routerLink]="['/login']">Login</a>
-            <a [routerLink]="['/signup']">Sign up</a>
-          </div>
+        <div *ngIf="!!user">
+          <a [routerLink]="['/selector']">Home</a>
+        </div>
+      </div>
+      <div class="header__user-options">
+        <div *ngIf="!!user">
+          <a [routerLink]="['/profile']">Hi, {{user.username}}</a>
+          <a (click)="logout()">Logout</a>
+        </div>
+        <div *ngIf="anon">
+          <a [routerLink]="['/login']">Login</a>
+          <a [routerLink]="['/signup']">Sign up</a>
         </div>
       </div>
     </div>
