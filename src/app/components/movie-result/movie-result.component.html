@@ -24,7 +24,7 @@
             <div class="movie-results__forms">
 
               <mat-form-field class="full-width">
-                <input matInput type="text" name="comment" [(ngModel)]="comment" #commentField="ngModel" placeholder="Comment" [disabled]="processing"
+                <input matInput class="mat-input-ripple mat-focused" type="text" name="comment" [(ngModel)]="comment" #commentField="ngModel" placeholder="Comment" [disabled]="processing"
                 />
               </mat-form-field>
 
@@ -43,6 +43,7 @@
           </div>
         <button class="btn" (click)="nextMovie()">Next</button>
         <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Save</button>
+        <button class="btn" (click)="searchTorrents(movies[index])">Search Torrents</button>
       </div>
     </div>
   </div>

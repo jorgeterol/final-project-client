@@ -20,6 +20,7 @@ export class MovieResultComponent implements OnInit {
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
   @Output() submitcomment: EventEmitter<any> = new EventEmitter;
   @Output() showcomment: EventEmitter<any> = new EventEmitter;
+  @Output() searchtorrents: EventEmitter<any> = new EventEmitter;
 
   comment: string;
   movieAndComment: any;
@@ -44,5 +45,9 @@ export class MovieResultComponent implements OnInit {
     };
     this.comment = '';
     this.submitcomment.emit(this.movieAndComment);
+  }
+
+  searchTorrents(movie) {
+    this.searchtorrents.emit(movie);
   }
 }

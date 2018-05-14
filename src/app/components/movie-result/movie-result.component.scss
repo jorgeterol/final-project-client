@@ -42,3 +42,7 @@
 mat-form-field {
     font-family: inherit;
 }
+
+.mat-input-ripple.mat-focused {
+    border-bottom-color:  green;
+}

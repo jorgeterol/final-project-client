@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { TorrentService } from '../../services/torrent.service';
 
 @Component({
   selector: 'app-movie-result-page',
@@ -19,7 +20,7 @@ export class MovieResultPageComponent implements OnInit {
   index: number;
   comment: string;
 
-  constructor(private movieService: MoviesService) { }
+  constructor(private movieService: MoviesService, private torrentService: TorrentService) { }
 
   ngOnInit() {
     this.parameters = this.movieService.getParameters();
@@ -70,5 +71,9 @@ export class MovieResultPageComponent implements OnInit {
       .then((comment) => {
         this.comments.push(comment);
       });
+  }
+
+  handleSearchTorrents(movie) {
+    this.torrentService.getTorrents(movie);
   }
 }

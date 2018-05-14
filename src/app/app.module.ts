@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthService } from './services/auth.service';
 import { MoviesService } from './services/movies.service';
+import { TorrentService } from './services/torrent.service';
 
 // --- GUARDS
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
@@ -78,7 +79,8 @@ const routes: Routes = [
     InitAuthGuardService,
     RequireAnonGuardService,
     RequireUserGuardService,
-    MoviesService
+    MoviesService,
+    TorrentService
   ],
   bootstrap: [AppComponent]
 })
