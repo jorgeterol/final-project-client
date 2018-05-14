@@ -30,8 +30,8 @@ export class MovieResultPageComponent implements OnInit {
           this.nomovies = true;
         } else {
           this.movies = result;
+          this.getComments();
         }
-        this.getComments();
       })
       .catch((err) => {
         this.error = err.error.code; // :-)
