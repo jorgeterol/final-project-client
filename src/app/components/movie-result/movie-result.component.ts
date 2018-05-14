@@ -15,13 +15,13 @@ export class MovieResultComponent implements OnInit {
   @Input() feedbackEnabled: boolean;
   @Input() index: number;
   @Input() comments: any;
-  @Input() comment: string;
 
   @Output() submitnext: EventEmitter<any> = new EventEmitter;
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
   @Output() submitcomment: EventEmitter<any> = new EventEmitter;
   @Output() showcomment: EventEmitter<any> = new EventEmitter;
 
+  comment: string;
   movieAndComment: any;
   constructor() {}
 
@@ -29,6 +29,7 @@ export class MovieResultComponent implements OnInit {
   }
 
   nextMovie() {
+    this.comment = '';
     this.submitnext.emit();
   }
 
@@ -41,6 +42,7 @@ export class MovieResultComponent implements OnInit {
       movie: movie,
       comment: form.value.comment
     };
+    this.comment = '';
     this.submitcomment.emit(this.movieAndComment);
   }
 }

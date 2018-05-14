@@ -56,8 +56,8 @@ export class MovieResultPageComponent implements OnInit {
     } else {
       this.index = 0;
     }
+
     this.getComments();
-    this.comment = '';
   }
 
   handleSaveMovie(movie) {
@@ -65,6 +65,7 @@ export class MovieResultPageComponent implements OnInit {
   }
 
   handleSubmitComment(movieAndComment) {
+    this.comment = '';
     this.movieService.saveComment(movieAndComment)
       .then((comment) => {
         this.comments.push(comment);
