@@ -15,7 +15,7 @@ export class MoviesService {
   }
 
   getParameters() {
-    return this.saveParameters(this.parameters);
+    return this.parameters;
   }
 
   getMovies(parameters): Promise<any> {
@@ -33,7 +33,8 @@ export class MoviesService {
     };
 
     return this.httpClient.post(`${this.baseUrl}/movies/save`, movie, options)
-      .toPromise();  }
+      .toPromise();
+  }
 
   saveComment(movieAndComment): any {
     const options = {
@@ -41,5 +42,15 @@ export class MoviesService {
     };
 
     return this.httpClient.post(`${this.baseUrl}/movies/comment`, movieAndComment, options)
-      .toPromise();  }
+      .toPromise();
+  }
+
+  showComments(movie): any {
+    const options = {
+      withCredentials: true
+    };
+
+    return this.httpClient.post(`${this.baseUrl}/movies/show`, movie, options)
+      .toPromise();
+  }
 }

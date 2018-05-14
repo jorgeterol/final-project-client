@@ -8,26 +8,27 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MovieResultComponent implements OnInit {
 
   @Input() movies: any;
-  @Input() nomovies = false;
+  @Input() nomovies;
   @Input() parameters: object;
   @Input() error: string;
   @Input() processing: boolean;
   @Input() feedbackEnabled: boolean;
   @Input() index: number;
+  @Input() comments: any;
+  @Input() comment: string;
 
   @Output() submitnext: EventEmitter<any> = new EventEmitter;
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
   @Output() submitcomment: EventEmitter<any> = new EventEmitter;
+  @Output() showcomment: EventEmitter<any> = new EventEmitter;
 
   movieAndComment: any;
-  comment: string;
   constructor() {}
 
   ngOnInit() {
   }
 
   nextMovie() {
-    this.comment = '';
     this.submitnext.emit();
   }
 
@@ -42,5 +43,4 @@ export class MovieResultComponent implements OnInit {
     };
     this.submitcomment.emit(this.movieAndComment);
   }
-
 }

@@ -8,13 +8,16 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MovieResultPageComponent implements OnInit {
 
-  movies: Array<object>;
+  movies: Array<any>;
+  comments: any;
   nomovies = false;
   parameters: object;
   error: string;
   processing: boolean;
   feedbackEnabled: boolean;
+  commentShow = false;
   index: number;
+  comment: string;
 
   constructor(private movieService: MoviesService) { }
 
@@ -28,11 +31,22 @@ export class MovieResultPageComponent implements OnInit {
         } else {
           this.movies = result;
         }
+        this.getComments();
       })
       .catch((err) => {
         this.error = err.error.code; // :-)
         this.processing = false;
         this.feedbackEnabled = false;
+      });
+  }
+
+  getComments() {
+    this.movieService.showComments(this.movies[this.index])
+      .then((comments) => {
+        this.comments = comments;
+      })
+      .catch((err) => {
+        console.error(err);
       });
   }
 
@@ -42,13 +56,18 @@ export class MovieResultPageComponent implements OnInit {
     } else {
       this.index = 0;
     }
+    this.getComments();
+    this.comment = '';
   }
 
   handleSaveMovie(movie) {
     this.movieService.saveMovie(movie);
   }
 
-  handleComment(movieAndComment) {
-    this.movieService.saveComment(movieAndComment);
+  handleSubmitComment(movieAndComment) {
+    this.movieService.saveComment(movieAndComment)
+      .then((comment) => {
+        this.comments.push(comment);
+      });
   }
 }
