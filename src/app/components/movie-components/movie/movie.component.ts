@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { genres, languages } from '../../helpers/values';
+import { genres, languages } from '../../../helpers/values';
 
 @Component({
   selector: 'app-movie',

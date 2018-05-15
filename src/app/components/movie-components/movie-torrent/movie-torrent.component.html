@@ -1,0 +1,10 @@
+
+<div *ngFor="let torrent of torrents">
+  Quality: {{torrent.quality}}
+  peers: {{torrent.peers}}
+  seeds: {{torrent.seeds}}
+  size: {{torrent.size}}
+  Link: <a href="{{torrent.url}}">Download</a>
+</div>
+
+<button class="btn" (click)="goBack()">Go Back</button>

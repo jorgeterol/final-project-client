@@ -1,1 +1,7 @@
+<div *ngIf="!displayTorrents">
 <app-movie-result [movies]="movies" [nomovies]="nomovies" [parameters]="parameters" [error]="error" [processing]="processing" [comments]="comments" [feedbackEnabled]="feedbackEnabled" [index]="index" (submitnext)="handleNextMovie()" (submitsave)="handleSaveMovie($event)" (submitcomment)="handleSubmitComment($event)" (searchtorrents)="handleSearchTorrents($event)"></app-movie-result>
+</div>
+
+<div *ngIf="displayTorrents">
+<app-movie-torrent [movies]="movies" [torrents]="torrents" (submitback)="handleGoBack()"></app-movie-torrent>
+</div>

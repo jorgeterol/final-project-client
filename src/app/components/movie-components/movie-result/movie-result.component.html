@@ -1,3 +1,4 @@
+<!-- ******** LOADING SPINNER ******** -->
 <div class="movie-results">
   <div class="movie-results__spinner">
     <div *ngIf="!movies && !nomovies">
@@ -5,20 +6,23 @@
     </div>
   </div>
 
+<!-- ******** MOVIE ******** -->
   <div *ngIf="movies && !nomovies">
     <div class="movie-results__movies">
+    <!-- ******** MOVIE POSTER ******** -->
       <div class="movie-results__movies__poster">
         <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies[index].poster_path}}" alt="Poster">
       </div>
+      <!-- ******** MOVIE INFO ******** -->
       <div class="movie-results__movies__info">
         <div class="movie-results__movies__info__title-vote">
-          <strong>{{movies[index].title}}</strong> -
-          <strong>{{movies[index].vote_average}}</strong> -
-          <strong>{{movies[index].release_date}}</strong>
+           <app-movie-info [movie]="movies[index]"></app-movie-info>
         </div>
+        <!-- ******** MOVIE OVERVIEW ******** -->
         <div class="movie-results__movies__info__overview">
-          {{movies[index].overview}}
+          <app-movie-overview [movie]="movies[index]"></app-movie-overview>
         </div>
+        <!-- ******** SEND COMMENTS ******** -->
         <form (ngSubmit)="submitComment(form, movies[index])" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
           <div class="movie-results">
             <div class="movie-results__forms">
@@ -36,11 +40,12 @@
             </div>
           </div>
         </form>
-
+          <!-- ******** SEE COMMENTS ******** -->
           <div *ngFor="let comment of comments">
             <b>User:</b> {{comment.username.username}} 
             <b>Comment:</b> {{comment.comment}}
           </div>
+          <!-- ******** BUTTONS ******** -->
         <button class="btn" (click)="nextMovie()">Next</button>
         <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Save</button>
         <button class="btn" (click)="searchTorrents(movies[index])">Search Torrents</button>
@@ -49,6 +54,7 @@
   </div>
 </div>
 
+<!-- ******** IN CASE OF NO RESULTS ******** -->
 <div *ngIf="!movies && nomovies">
   <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>
   <a class="btn" [routerLink]="['/movies']">Go Back</a>

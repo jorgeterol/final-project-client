@@ -11,6 +11,7 @@ export class MovieResultPageComponent implements OnInit {
 
   movies: Array<any>;
   comments: any;
+  torrents: any;
   nomovies = false;
   parameters: object;
   error: string;
@@ -19,6 +20,7 @@ export class MovieResultPageComponent implements OnInit {
   commentShow = false;
   index: number;
   comment: string;
+  displayTorrents = false;
 
   constructor(private movieService: MoviesService, private torrentService: TorrentService) { }
 
@@ -74,6 +76,14 @@ export class MovieResultPageComponent implements OnInit {
   }
 
   handleSearchTorrents(movie) {
-    this.torrentService.getTorrents(movie);
+    this.displayTorrents = true;
+    this.torrentService.getTorrents(movie)
+    .then((torrents) => {
+      this.torrents = torrents[0].torrents;
+    });
+  }
+
+  handleGoBack() {
+    this.displayTorrents = false;
   }
 }
