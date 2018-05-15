@@ -20,6 +20,7 @@ export class MovieResultPageComponent implements OnInit {
   feedbackEnabled: boolean;
   commentShow = false;
   index: number;
+  moviesLength: number;
   comment: string;
   displayTorrents = false;
 
@@ -34,6 +35,7 @@ export class MovieResultPageComponent implements OnInit {
           this.nomovies = true;
         } else {
           this.movies = result;
+          this.moviesLength = result.length;
           this.getComments();
         }
       })
@@ -55,8 +57,18 @@ export class MovieResultPageComponent implements OnInit {
   }
 
   handleNextMovie() {
-    if (this.index < 2) {
-      this.index++;
+    if (this.moviesLength === 3) {
+      if (this.index < 2) {
+        this.index++;
+      } else {
+        this.index = 0;
+      }
+    } else if (this.moviesLength === 2) {
+        if (this.index < 1) {
+          this.index++;
+        } else {
+          this.index = 0;
+        }
     } else {
       this.index = 0;
     }

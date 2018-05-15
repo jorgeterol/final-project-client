@@ -10,7 +10,7 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" validate min="0" max="10" placeholder="Min.Rating"
+        <input matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" placeholder="Min.Rating"
           [disabled]="processing" />
       </mat-form-field>
       <div *ngIf="feedbackEnabled && invalidRating">
@@ -26,7 +26,7 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" min="0" max="10" placeholder="Year of release"
+        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" placeholder="Year of release"
           [disabled]="processing" />
       </mat-form-field>
       <div *ngIf="feedbackEnabled && invalidYear">
