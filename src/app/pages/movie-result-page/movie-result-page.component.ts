@@ -85,5 +85,6 @@ export class MovieResultPageComponent implements OnInit {
 
   handleGoBack() {
     this.displayTorrents = false;
+    this.torrents = [];
   }
 }

@@ -10,7 +10,7 @@ export class MovieTorrentComponent implements OnInit {
   @Input() movies: any;
   @Input() torrents: any;
 
-  @Output() submitback: EventEmitter<any> = new EventEmitter;
+  @Output() submitbackcomponent: EventEmitter<any> = new EventEmitter;
 
 
   constructor() { }
@@ -19,7 +19,7 @@ export class MovieTorrentComponent implements OnInit {
   }
 
   goBack() {
-    this.submitback.emit();
+    this.submitbackcomponent.emit();
   }
 
 }

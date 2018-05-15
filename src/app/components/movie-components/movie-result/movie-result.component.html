@@ -1,60 +1,53 @@
-<!-- ******** LOADING SPINNER ******** -->
-<div class="movie-results">
-  <div class="movie-results__spinner">
-    <div *ngIf="!movies && !nomovies">
-      <mat-spinner class="spinner"></mat-spinner>
-    </div>
+<div class="spinner">
+  <div *ngIf="!movies && !nomovies">
+    <mat-spinner class="spinner"></mat-spinner>
   </div>
+</div>
 
-<!-- ******** MOVIE ******** -->
-  <div *ngIf="movies && !nomovies">
-    <div class="movie-results__movies">
-    <!-- ******** MOVIE POSTER ******** -->
-      <div class="movie-results__movies__poster">
-        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies[index].poster_path}}" alt="Poster">
+
+<div *ngIf="movies && !nomovies">
+  <div class="movie-result">
+    <div class="movie-result__poster">
+      <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies[index].poster_path}}" alt="Poster">
+    </div>
+
+    <div class="movie-result__data">
+      <div class="movie-result__data-info">
+        <app-movie-info [movie]="movies[index]"></app-movie-info>
       </div>
-      <!-- ******** MOVIE INFO ******** -->
-      <div class="movie-results__movies__info">
-        <div class="movie-results__movies__info__title-vote">
-           <app-movie-info [movie]="movies[index]"></app-movie-info>
-        </div>
-        <!-- ******** MOVIE OVERVIEW ******** -->
-        <div class="movie-results__movies__info__overview">
+      <div *ngIf="!displayTorrents">
+        <div class="movie-result__data-overview">
           <app-movie-overview [movie]="movies[index]"></app-movie-overview>
         </div>
-        <!-- ******** SEND COMMENTS ******** -->
-        <form (ngSubmit)="submitComment(form, movies[index])" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-          <div class="movie-results">
-            <div class="movie-results__forms">
-
-              <mat-form-field class="full-width">
-                <input matInput class="mat-input-ripple mat-focused" type="text" name="comment" [(ngModel)]="comment" #commentField="ngModel" placeholder="Comment" [disabled]="processing"
-                />
-              </mat-form-field>
-
-            </div>
-            <div class="movie-results__button">
-              <div class="field submit">
-                <button class="btn" type="submit" [disabled]="processing">Send comment</button>
-              </div>
-            </div>
+        <div class="movie-result__data-buttons">
+          <div class="movie-result__data-buttons-button">
+            <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Favorites</button>
           </div>
-        </form>
-          <!-- ******** SEE COMMENTS ******** -->
-          <div *ngFor="let comment of comments">
-            <b>User:</b> {{comment.username.username}} 
-            <b>Comment:</b> {{comment.comment}}
+          <div class="movie-result__data-buttons-button">
+            <button class="btn" (click)="searchTorrents(movies[index])">See Movie</button>
           </div>
-          <!-- ******** BUTTONS ******** -->
-        <button class="btn" (click)="nextMovie()">Next</button>
-        <button class="btn" type="submit" (click)="saveMovie(movies[index])" [disabled]="processing">Save</button>
-        <button class="btn" (click)="searchTorrents(movies[index])">Search Torrents</button>
+          <div class="movie-result__data-buttons-button">
+            <button class="btn" (click)="nextMovie()">Next</button>
+          </div>
+        </div>
+        <div class="movie-result__data-comments">
+          <div class="movie-result__data-comments-send">
+            <app-movie-send-comments [movie]="movies[index]" [processing]="processing" (submitcommentcomponent)="submitComment($event)"></app-movie-send-comments>
+          </div>
+          <div class="movie-result__data-comments-display">
+            <app-movie-display-comments [comments]="comments"></app-movie-display-comments>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="displayTorrents">
+        <div class="movie-result__data-torrents">
+          <app-movie-torrent [torrents]="torrents" (submitbackcomponent)="goBack($event)"></app-movie-torrent>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ******** IN CASE OF NO RESULTS ******** -->
 <div *ngIf="!movies && nomovies">
   <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>
   <a class="btn" [routerLink]="['/movies']">Go Back</a>

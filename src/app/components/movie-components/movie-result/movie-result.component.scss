@@ -1,48 +1,53 @@
 @import '../../../../scss/_variables.scss';
 
-.movie-results {
-    @include flex-center;
+.movie-result {
 
-    &__movies {
-      @include flex-center-column;
-           
-      @media only screen and (min-width: 768px) {
-        flex-direction: row;
-        @include padding-right-left(20px);
-      }
+  @include flex-center-column;
+  
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 
-    &__poster{
+  &__poster {
+    
+    @media only screen and (min-width: 768px) {
+    @include padding-right-left(30px)
+    }
+
+  }
+
+  &__data {
+    @include flex-center-column;
+
+    &-info {
       @include padding-top-margin-bottom(20px);
-      @include padding-right-left(20px);
+    }
+
+    &-overview {
+      @include padding-top-margin-bottom(20px);
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-around;
+      @include padding-top-margin-bottom(20px);
     }
     
-    &__info {
-      @include flex-center;
-      flex-direction: column;
-       
-      &__title-info {
-        @include padding-top-margin-bottom(20px);
-        display: flex;
-        flex-direction: column;
-      }
-      
-      &__overview {
-        @include padding-top-margin-bottom(20px);
-          text-align: justify;
-        }
-
-      }
+    &-comments {
+      @include flex-center-column;
     }
+
+  }
+  
+  mat-form-field {
+      font-family: inherit;
+  }
+}
+
+.spinner {
+  @include flex-center-column;
 }
 
 .spinner::ng-deep circle {
   stroke: $color-primary;
-}
-
-mat-form-field {
-    font-family: inherit;
-}
-
-.mat-input-ripple.mat-focused {
-    border-bottom-color:  green;
 }

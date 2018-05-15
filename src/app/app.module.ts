@@ -36,11 +36,16 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 // --- COMPONENTS
 
 import { AppComponent } from './app.component';
-import { MovieComponent } from './components/movie-components/movie/movie.component';
+
+// --- MOVIE COMPONENTS
+
+import { MovieSearchComponent } from './components/movie-components/movie-search/movie-search.component';
 import { MovieResultComponent } from './components/movie-components/movie-result/movie-result.component';
 import { MovieTorrentComponent } from './components/movie-components/movie-torrent/movie-torrent.component';
 import { MovieOverviewComponent } from './components/movie-components/movie-overview/movie-overview.component';
 import { MovieInfoComponent } from './components/movie-components/movie-info/movie-info.component';
+import { MovieSendCommentsComponent } from './components/movie-components/movie-send-comments/movie-send-comments.component';
+import { MovieDisplayCommentsComponent } from './components/movie-components/movie-display-comments/movie-display-comments.component';
 
 
 // --- ROUTES
@@ -63,13 +68,15 @@ const routes: Routes = [
     LoginPageComponent,
     SelectorComponent,
     MoviePageComponent,
-    MovieComponent,
+    MovieSearchComponent,
     MovieResultPageComponent,
     NotFoundPageComponent,
     MovieResultComponent,
     MovieTorrentComponent,
     MovieOverviewComponent,
-    MovieInfoComponent
+    MovieInfoComponent,
+    MovieSendCommentsComponent,
+    MovieDisplayCommentsComponent
 
   ],
   imports: [

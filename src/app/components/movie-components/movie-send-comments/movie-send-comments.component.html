@@ -1,0 +1,16 @@
+<form (ngSubmit)="submitComment(form, movie)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <div class="input-button">
+    <div class="input">
+      <mat-form-field class="full-width">
+        <input matInput class="mat-input-ripple mat-focused" type="text" name="comment" [(ngModel)]="comment" #commentField="ngModel"
+          placeholder="Comment" />
+      </mat-form-field>
+    </div>
+
+    <div class="button">
+      <div class="field submit">
+        <button class="btn" type="submit">Send</button>
+      </div>
+    </div>
+  </div>
+</form>

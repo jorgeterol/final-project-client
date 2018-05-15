@@ -1,0 +1,17 @@
+@import '../../../../scss/_variables.scss';
+
+
+.torrents {
+    @include flex-center;
+    @include padding-top-margin-bottom(20px)
+    
+    &-torrent {
+        flex: 1 0 1;
+        
+    }
+}
+
+.button {
+    @include flex-center;
+    @include padding-top-margin-bottom(20px)
+}

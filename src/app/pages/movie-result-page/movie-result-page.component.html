@@ -1,7 +1,2 @@
-<div *ngIf="!displayTorrents">
-<app-movie-result [movies]="movies" [nomovies]="nomovies" [parameters]="parameters" [error]="error" [processing]="processing" [comments]="comments" [feedbackEnabled]="feedbackEnabled" [index]="index" (submitnext)="handleNextMovie()" (submitsave)="handleSaveMovie($event)" (submitcomment)="handleSubmitComment($event)" (searchtorrents)="handleSearchTorrents($event)"></app-movie-result>
-</div>
+<app-movie-result [movies]="movies" [nomovies]="nomovies" [torrents]="torrents" [displayTorrents]="displayTorrents" [parameters]="parameters" [processing]="processing" [comments]="comments" [index]="index" (submitnext)="handleNextMovie()" (submitsave)="handleSaveMovie($event)" (submitcomment)="handleSubmitComment($event)" (searchtorrents)="handleSearchTorrents($event)" (submitback)="handleGoBack()"></app-movie-result>
 
-<div *ngIf="displayTorrents">
-<app-movie-torrent [movies]="movies" [torrents]="torrents" (submitback)="handleGoBack()"></app-movie-torrent>
-</div>

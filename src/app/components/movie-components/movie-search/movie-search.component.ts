@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { genres, languages } from '../../../helpers/values';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  selector: 'app-movie-search',
+  templateUrl: './movie-search.component.html',
+  styleUrls: ['./movie-search.component.scss']
 })
-export class MovieComponent implements OnInit {
+export class MovieSearchComponent implements OnInit {
 
   @Input() processing: boolean;
   @Input() parameters: any;
