@@ -41,7 +41,7 @@
       </div>
       <div *ngIf="displayTorrents">
         <div class="movie-result__data-torrents">
-          <app-movie-torrent [torrents]="torrents" (submitbackcomponent)="goBack($event)"></app-movie-torrent>
+          <app-movie-torrent [torrents]="torrents" [notorrents]="notorrents" (submitbackcomponent)="goBack($event)"></app-movie-torrent>
         </div>
       </div>
     </div>

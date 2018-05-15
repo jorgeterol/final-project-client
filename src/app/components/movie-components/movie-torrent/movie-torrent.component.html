@@ -1,11 +1,18 @@
-<div class="torrents">
-  <div *ngFor="let torrent of torrents">
-    <div class="torrent">
-      <h3>{{torrent.quality}}</h3> 
-      Size: {{torrent.size}} <br>
-      <a href="{{torrent.url}}">Download</a>
+<div *ngIf=!notorrents>
+  <div class="torrents">
+    <div *ngFor="let torrent of torrents">
+      <div class="torrent">
+        <h3>{{torrent.quality}}</h3>
+        Size: {{torrent.size}}
+        <br>
+        <a href="{{torrent.url}}">Download</a>
+      </div>
     </div>
   </div>
+</div>
+
+<div *ngIf=notorrents>
+  <h3>Sorry, we couldn't find torrents for this movie.</h3>
 </div>
 
 <div class="button">

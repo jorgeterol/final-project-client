@@ -10,9 +10,10 @@ import { TorrentService } from '../../services/torrent.service';
 export class MovieResultPageComponent implements OnInit {
 
   movies: Array<any>;
+  nomovies = false;
   comments: any;
   torrents: any;
-  nomovies = false;
+  notorrents = false;
   parameters: object;
   error: string;
   processing: boolean;
@@ -79,12 +80,17 @@ export class MovieResultPageComponent implements OnInit {
     this.displayTorrents = true;
     this.torrentService.getTorrents(movie)
     .then((torrents) => {
+      if (torrents === null) {
+        this.notorrents = true;
+      } else {
       this.torrents = torrents[0].torrents;
+      }
     });
   }
 
   handleGoBack() {
     this.displayTorrents = false;
+    this.notorrents = false;
     this.torrents = [];
   }
 }

@@ -15,6 +15,7 @@ export class MovieResultComponent implements OnInit {
   @Input() comments: any;
   @Input() displayTorrents: any;
   @Input() torrents: any;
+  @Input() notorrents: any;
 
   @Output() submitnext: EventEmitter<any> = new EventEmitter;
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
