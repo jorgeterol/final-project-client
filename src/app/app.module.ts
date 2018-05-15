@@ -28,7 +28,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SelectorComponent } from './pages/selector/selector.component';
-import { MoviePageComponent } from './pages/movie-page/movie-page.component';
+import { MovieSearchPageComponent } from './pages/movie-search-page/movie-search-page.component';
 import { MovieResultPageComponent } from './pages/movie-result-page/movie-result-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]},
-  { path: 'movies', component: MoviePageComponent, canActivate: [RequireUserGuardService]},
+  { path: 'movies', component: MovieSearchPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'movies/result', component: MovieResultPageComponent, canActivate: [RequireUserGuardService]},
   { path: '**', component: NotFoundPageComponent}
 ];
@@ -67,7 +67,7 @@ const routes: Routes = [
     SignupPageComponent,
     LoginPageComponent,
     SelectorComponent,
-    MoviePageComponent,
+    MovieSearchPageComponent,
     MovieSearchComponent,
     MovieResultPageComponent,
     NotFoundPageComponent,
