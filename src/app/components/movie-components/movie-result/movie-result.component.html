@@ -47,8 +47,13 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="!movies && nomovies">
-  <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>
-  <a class="btn" [routerLink]="['/movies']">Go Back</a>
+<div class="nomovies">
+  <div *ngIf="!movies && nomovies">
+    <div class="heading">
+    <h1>SORRY, NO MOVIES FOUND, TRY WITH ANOTHER SEARCH</h1>
+    </div>
+    <div>
+    <a class="btn" [routerLink]="['/movies']">Go Back</a>
+    </div>
+  </div>
 </div>

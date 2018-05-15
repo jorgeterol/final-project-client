@@ -1,4 +1,8 @@
-<div *ngFor="let comment of comments">
-  <b>User:</b> {{comment.username.username}}
-  <b>Comment:</b> {{comment.comment}}
+<div class="comments">
+  <div class="comment">
+    <div *ngFor="let comment of comments">
+      <b>User:</b> {{comment.username.username}}
+      <b>Comment:</b> {{comment.comment}}
+    </div>
+  </div>
 </div>

@@ -36,12 +36,20 @@
     &-comments {
       @include flex-center-column;
     }
-
+    
   }
   
-  mat-form-field {
-      font-family: inherit;
-  }
+  
+}
+
+.nomovies {
+  text-align: center;
+}
+.heading {
+  @include padding-top-margin-bottom(60px);
+}
+mat-form-field {
+  font-family: inherit;
 }
 
 .spinner {

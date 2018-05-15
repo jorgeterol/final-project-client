@@ -10,11 +10,11 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" placeholder="Min.Rating"
+        <input class="newcolor" matInput type="number" name="rating" [(ngModel)]="rating" #ratingField="ngModel" placeholder="Rating greater than..."
           [disabled]="processing" />
       </mat-form-field>
       <div *ngIf="feedbackEnabled && invalidRating">
-        <p *ngIf="invalidRating">Rating value between 1-10</p>
+        <p *ngIf="invalidRating">The rating must be between 1-10</p>
       </div>
 
       <mat-form-field class="full-width">
@@ -26,11 +26,11 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" placeholder="Year of release"
+        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" placeholder="Year greater than.."
           [disabled]="processing" />
       </mat-form-field>
       <div *ngIf="feedbackEnabled && invalidYear">
-        <p *ngIf="invalidYear">Year value lower than 2018</p>
+        <p *ngIf="invalidYear">The year must be lower than 2018</p>
       </div>
 
 
