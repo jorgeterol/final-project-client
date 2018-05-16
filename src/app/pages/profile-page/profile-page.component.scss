@@ -1,0 +1,34 @@
+@import '../../../scss/_variables.scss';
+
+.profile {
+    text-align: center;
+    @include flex-center-column;
+
+    &-movies {
+        @include flex-center;
+        flex-wrap: wrap;
+
+        &__movie {
+            @include padding-right-left(20px);
+        }
+    }
+    
+    &-shows {
+        @include flex-center;
+        flex-wrap: wrap;
+
+        &__show {
+            @include padding-right-left(20px);
+        }
+        
+    }
+    
+    &-comments {
+
+    }
+}
+
+
+.poster {
+    width: 50%;
+}

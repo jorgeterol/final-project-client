@@ -1,8 +1,44 @@
-<div *ngFor="let movie of movies">
-  {{movie.title}}
+<div *ngIf="!noUserFound">
+  <div class="profile">
+    <h1>MOVIES</h1>
+    <div class="profile-movies">
+      <div *ngFor="let movie of movies">
+        <div class="profile-movies__movie">
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster}}" alt="Poster">
+          <h3>{{movie.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <h1>TV SHOWS</h1>
+    <div class="profile-shows">
+      <div *ngFor="let show of shows">
+        <div class="profile-shows__show">
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{show.poster}}" alt="Poster">
+          <h3>{{show.name}}</h3>
+        </div>
+      </div>
+    </div>
+    <h1>COMMENTS</h1>
+    <div class="profile-comments">
+      <div class="profile-comments__comment">
+        <div *ngFor="let comment of comments">
+          <div class="profile-comments__comment">
+            <div *ngIf="comment.movie">
+              <b>Comment:</b> {{comment.comment}}
+              <b>in movie:</b> {{comment.movie.title}}
+            </div>
+            <div *ngIf="comment.show">
+              <b>Comment:</b> {{comment.comment}}
+              <b>in show:</b> {{comment.show.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngFor="let show of shows">
-  {{show.name}}
+<div *ngIf="noUserFound">
+  <h1>THIS USER DOESN'T EXIST</h1>
+  <a class="btn" [routerLink]="['/']">Go Back</a>
 </div>
-
