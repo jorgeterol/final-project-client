@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { MoviesService } from './services/movies.service';
 import { TorrentService } from './services/torrent.service';
 import { ShowService } from './services/show.service';
+import { ProfileService } from './services/profile.service';
 
 // --- GUARDS
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
@@ -34,6 +35,7 @@ import { MovieResultPageComponent } from './pages/movie-result-page/movie-result
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ShowSearchPageComponent } from './pages/show-search-page/show-search-page.component';
 import { ShowResultPageComponent } from './pages/show-result-page/show-result-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 
 // --- COMPONENTS
@@ -69,6 +71,7 @@ const routes: Routes = [
   { path: 'movies/result', component: MovieResultPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'shows', component: ShowSearchPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'shows/result', component: ShowResultPageComponent, canActivate: [RequireUserGuardService]},
+  { path: 'profile/:username', component: ProfilePageComponent, canActivate: [RequireUserGuardService]},
   { path: '**', component: NotFoundPageComponent}
 ];
 
@@ -96,7 +99,8 @@ const routes: Routes = [
     ShowDisplayCommentsComponent,
     ShowInfoComponent,
     ShowOverviewComponent,
-    ShowSendCommentsComponent
+    ShowSendCommentsComponent,
+    ProfilePageComponent
 
   ],
   imports: [
@@ -114,7 +118,8 @@ const routes: Routes = [
     RequireUserGuardService,
     MoviesService,
     TorrentService,
-    ShowService
+    ShowService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })
