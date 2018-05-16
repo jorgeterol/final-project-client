@@ -21,6 +21,7 @@
       </mat-form-field>
       <div *ngIf="feedbackEnabled && passwordField.errors">
         <p *ngIf="passwordField.errors.required">Password is required</p>
+        <p *ngIf="passwordField.errors.minlength">Password is too short</p>
       </div>
     </div>
     <div class="submit">
