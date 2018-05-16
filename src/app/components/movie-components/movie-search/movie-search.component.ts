@@ -16,6 +16,10 @@ export class MovieSearchComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   genres: Array<object> = genres;
+  genre: any;
+  rating: any;
+  language: any;
+  date: any;
   languages: Array<object> = languages;
   invalidRating = false;
   invalidYear = false;

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ShowService {
 
   parameters: Object;
-  private baseUrl = 'http://localhost:3000';
+  private apiUrl = environment.apiUrl + '/shows';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +25,7 @@ export class ShowService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/shows`, parameters, options)
+    return this.httpClient.post(`${this.apiUrl}`, parameters, options)
       .toPromise();
   }
 
@@ -32,7 +34,7 @@ export class ShowService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/shows/save`, show, options)
+    return this.httpClient.post(`${this.apiUrl}/save`, show, options)
       .toPromise();
   }
 
@@ -41,7 +43,7 @@ export class ShowService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/shows/comment`, showAndComment, options)
+    return this.httpClient.post(`${this.apiUrl}/comment`, showAndComment, options)
       .toPromise();
   }
 
@@ -50,7 +52,7 @@ export class ShowService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/shows/show`, show, options)
+    return this.httpClient.post(`${this.apiUrl}/show`, show, options)
       .toPromise();
   }
 

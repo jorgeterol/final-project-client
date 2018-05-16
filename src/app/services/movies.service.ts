@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class MoviesService {
 
   parameters: Object;
-  private baseUrl = 'http://localhost:3000';
+
+  private apiUrl = environment.apiUrl + '/movies';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +26,7 @@ export class MoviesService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/movies`, parameters, options)
+    return this.httpClient.post(`${this.apiUrl}`, parameters, options)
       .toPromise();
   }
 
@@ -32,7 +35,7 @@ export class MoviesService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/movies/save`, movie, options)
+    return this.httpClient.post(`${this.apiUrl}/save`, movie, options)
       .toPromise();
   }
 
@@ -41,7 +44,7 @@ export class MoviesService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/movies/comment`, movieAndComment, options)
+    return this.httpClient.post(`${this.apiUrl}/comment`, movieAndComment, options)
       .toPromise();
   }
 
@@ -50,7 +53,7 @@ export class MoviesService {
       withCredentials: true
     };
 
-    return this.httpClient.post(`${this.baseUrl}/movies/show`, movie, options)
+    return this.httpClient.post(`${this.apiUrl}/show`, movie, options)
       .toPromise();
   }
 }
