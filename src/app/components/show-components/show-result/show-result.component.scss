@@ -1,0 +1,61 @@
+@import '../../../../scss/_variables.scss';
+
+.show-result {
+
+  @include flex-center-column;
+  
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  &__poster {
+    
+    @media only screen and (min-width: 768px) {
+    @include padding-right-left(30px)
+    }
+
+  }
+
+  &__data {
+    @include flex-center-column;
+
+    &-info {
+      @include padding-top-margin-bottom(20px);
+    }
+
+    &-overview {
+      @include padding-top-margin-bottom(20px);
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-around;
+      @include padding-top-margin-bottom(20px);
+    }
+    
+    &-comments {
+      @include flex-center-column;
+    }
+    
+  }
+  
+  
+}
+
+.noshows {
+  text-align: center;
+}
+.heading {
+  @include padding-top-margin-bottom(60px);
+}
+mat-form-field {
+  font-family: inherit;
+}
+
+.spinner {
+  @include flex-center-column;
+}
+
+.spinner::ng-deep circle {
+  stroke: $color-primary;
+}

@@ -1,0 +1,10 @@
+@import '../../../../scss/_variables.scss';
+
+.show-preferences {
+    @include flex-center;
+    flex-direction: column;
+}
+
+mat-form-field {
+    font-family: inherit;
+}

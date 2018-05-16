@@ -1,0 +1,49 @@
+<div class="spinner">
+  <div *ngIf="!shows && !noshows">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+</div>
+
+
+<div *ngIf="shows && !noshows">
+  <div class="show-result">
+    <div class="show-result__poster">
+      <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{shows[index].poster_path}}" alt="Poster">
+    </div>
+
+    <div class="show-result__data">
+      <div class="show-result__data-info">
+        <app-show-info [show]="shows[index]"></app-show-info>
+      </div>
+      <div class="show-result__data-overview">
+        <app-show-overview [show]="shows[index]"></app-show-overview>
+      </div>
+      <div class="show-result__data-buttons">
+        <div class="show-result__data-buttons-button">
+          <button class="btn" type="submit" (click)="saveShow(shows[index])" [disabled]="processing">Favorites</button>
+        </div>
+        <div class="show-result__data-buttons-button">
+          <button class="btn" (click)="nextShow()">Next</button>
+        </div>
+      </div>
+      <div class="show-result__data-comments">
+        <div class="show-result__data-comments-send">
+          <app-show-send-comments [show]="shows[index]" [processing]="processing" (submitcommentcomponent)="submitComment($event)"></app-show-send-comments>
+        </div>
+        <div class="show-result__data-comments-display">
+          <app-show-display-comments [comments]="comments"></app-show-display-comments>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="noshows">
+  <div *ngIf="!shows && noshows">
+    <div class="heading">
+      <h1>SORRY, NO showS FOUND, TRY WITH ANOTHER SEARCH</h1>
+    </div>
+    <div>
+      <a class="btn" [routerLink]="['/shows']">Go Back</a>
+    </div>
+  </div>
+</div>

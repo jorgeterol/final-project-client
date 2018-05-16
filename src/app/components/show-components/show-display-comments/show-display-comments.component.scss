@@ -1,0 +1,5 @@
+@import '../../../../scss/_variables.scss';
+
+.comment {
+    @include flex-center-column 
+}

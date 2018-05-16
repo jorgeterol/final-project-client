@@ -1,8 +1,8 @@
-<h1>MOVIES SEARCH</h1>
+<h1>TV SHOWS SEARCH</h1>
 
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-  <div class="movie-preferences">
-    <div class="movie-preferences__forms">
+  <div class="show-preferences">
+    <div class="show-preferences__forms">
       <mat-form-field class="full-width">
         <mat-select [(ngModel)]="genre" #genreField="ngModel" name="genre" placeholder="Genre">
           <mat-option *ngFor="let genre of genres" [value]="genre.value" [disabled]="processing">
@@ -28,8 +28,8 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" placeholder="Year greater than.."
-          [disabled]="processing" />
+        <input matInput type="number" name="date" [(ngModel)]="date" #dateField="ngModel" placeholder="Year greater than.." [disabled]="processing"
+        />
       </mat-form-field>
       <div *ngIf="feedbackEnabled && invalidYear">
         <p *ngIf="invalidYear">The year must be lower than 2018</p>
@@ -37,7 +37,7 @@
 
 
     </div>
-    <div class="movie-preferences__button">
+    <div class="show-preferences__button">
       <div class="field submit">
         <button class="btn" type="submit" [disabled]="processing">Search</button>
       </div>

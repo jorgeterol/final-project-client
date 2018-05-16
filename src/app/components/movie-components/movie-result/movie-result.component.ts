@@ -20,7 +20,6 @@ export class MovieResultComponent implements OnInit {
   @Output() submitnext: EventEmitter<any> = new EventEmitter;
   @Output() submitsave: EventEmitter<any> = new EventEmitter;
   @Output() submitcomment: EventEmitter<any> = new EventEmitter;
-  @Output() showcomment: EventEmitter<any> = new EventEmitter;
   @Output() searchtorrents: EventEmitter<any> = new EventEmitter;
   @Output() submitback: EventEmitter<any> = new EventEmitter;
 

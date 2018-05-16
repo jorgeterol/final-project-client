@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { MoviesService } from './services/movies.service';
 import { TorrentService } from './services/torrent.service';
+import { ShowService } from './services/show.service';
 
 // --- GUARDS
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
@@ -31,6 +32,8 @@ import { SelectorComponent } from './pages/selector/selector.component';
 import { MovieSearchPageComponent } from './pages/movie-search-page/movie-search-page.component';
 import { MovieResultPageComponent } from './pages/movie-result-page/movie-result-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ShowSearchPageComponent } from './pages/show-search-page/show-search-page.component';
+import { ShowResultPageComponent } from './pages/show-result-page/show-result-page.component';
 
 
 // --- COMPONENTS
@@ -47,6 +50,13 @@ import { MovieInfoComponent } from './components/movie-components/movie-info/mov
 import { MovieSendCommentsComponent } from './components/movie-components/movie-send-comments/movie-send-comments.component';
 import { MovieDisplayCommentsComponent } from './components/movie-components/movie-display-comments/movie-display-comments.component';
 
+// --- SHOWS COMPONENTS
+import { ShowSearchComponent } from './components/show-components/show-search/show-search.component';
+import { ShowResultComponent } from './components/show-components/show-result/show-result.component';
+import { ShowDisplayCommentsComponent } from './components/show-components/show-display-comments/show-display-comments.component';
+import { ShowInfoComponent } from './components/show-components/show-info/show-info.component';
+import { ShowOverviewComponent } from './components/show-components/show-overview/show-overview.component';
+import { ShowSendCommentsComponent } from './components/show-components/show-send-comments/show-send-comments.component';
 
 // --- ROUTES
 
@@ -57,6 +67,8 @@ const routes: Routes = [
   { path: 'selector', component: SelectorComponent, canActivate: [RequireUserGuardService]},
   { path: 'movies', component: MovieSearchPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'movies/result', component: MovieResultPageComponent, canActivate: [RequireUserGuardService]},
+  { path: 'shows', component: ShowSearchPageComponent, canActivate: [RequireUserGuardService]},
+  { path: 'shows/result', component: ShowResultPageComponent, canActivate: [RequireUserGuardService]},
   { path: '**', component: NotFoundPageComponent}
 ];
 
@@ -76,7 +88,15 @@ const routes: Routes = [
     MovieOverviewComponent,
     MovieInfoComponent,
     MovieSendCommentsComponent,
-    MovieDisplayCommentsComponent
+    MovieDisplayCommentsComponent,
+    ShowResultPageComponent,
+    ShowSearchPageComponent,
+    ShowSearchComponent,
+    ShowResultComponent,
+    ShowDisplayCommentsComponent,
+    ShowInfoComponent,
+    ShowOverviewComponent,
+    ShowSendCommentsComponent
 
   ],
   imports: [
@@ -93,7 +113,8 @@ const routes: Routes = [
     RequireAnonGuardService,
     RequireUserGuardService,
     MoviesService,
-    TorrentService
+    TorrentService,
+    ShowService
   ],
   bootstrap: [AppComponent]
 })

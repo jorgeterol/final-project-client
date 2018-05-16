@@ -1,0 +1,15 @@
+@import '../../../../scss/_variables.scss';
+
+.input-button {
+    @include flex-center;
+}
+
+.input {
+    flex: 1 0 70%;
+    padding-right: 10px;
+}
+
+.button {
+    flex: 1 0 30%;
+    padding-left: 10px;
+}
