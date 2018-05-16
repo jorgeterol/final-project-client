@@ -1,7 +1,7 @@
 <div class="comments">
   <div class="comment">
     <div *ngFor="let comment of comments">
-      <b>User:</b> {{comment.username.username}}
+      <b>User:</b><a [routerLink]="['/profile', comment.username.username]"> {{comment.username.username}}</a>
       <b>Comment:</b> {{comment.comment}}
     </div>
   </div>
