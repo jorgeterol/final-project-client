@@ -22,3 +22,19 @@
         }
     }
 }
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
+
+ol {
+    font-size: 20px;
+     text-align: center;
+}
+
+li {
+    list-style: none;
+    @include padding-top-margin-bottom(10px);
+    padding-right: 10px;
+}

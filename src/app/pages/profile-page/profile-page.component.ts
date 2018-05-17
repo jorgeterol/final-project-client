@@ -23,7 +23,7 @@ export class ProfilePageComponent implements OnInit {
   currentUser: any;
   userOwnProfile: boolean;
 
-  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService, 
+  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService,
     private authService: AuthService) {
    }
 
