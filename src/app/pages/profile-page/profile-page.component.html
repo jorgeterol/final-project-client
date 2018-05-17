@@ -2,31 +2,31 @@
   <div class="profile">
     <h1>MOVIES</h1>
     <div class="profile-movies">
-      <div *ngIf="noMovies">
+      <ng-container *ngIf="noMovies">
         No favorite movies yet!
-      </div>
-      <div *ngIf="!noMovies">
+      </ng-container>
+      <ng-container *ngIf="!noMovies">
         <div *ngFor="let movie of movies">
           <div class="profile-movies__movie">
             <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster}}" alt="Poster">
             <h3>{{movie.title}}</h3>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <h1>TV SHOWS</h1>
     <div class="profile-shows">
-      <div *ngIf="noShows">
+      <ng-container *ngIf="noShows">
         No favorite shows yet!
-      </div>
-      <div *ngIf="!noShows">
+      </ng-container>
+      <ng-container *ngIf="!noShows">
         <div *ngFor="let show of shows">
           <div class="profile-shows__show">
             <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{show.poster}}" alt="Poster">
             <h3>{{show.name}}</h3>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <h1>COMMENTS</h1>
     <div class="profile-comments">
