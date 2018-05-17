@@ -22,4 +22,12 @@ export class ProfileService {
       .toPromise();
   }
 
+  deleteComment(comment): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.apiUrl}/${comment._id}`, options)
+      .toPromise();
+  }
+
 }

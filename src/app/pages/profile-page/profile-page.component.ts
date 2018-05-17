@@ -18,14 +18,20 @@ export class ProfilePageComponent implements OnInit {
   noMovies: boolean;
   noShows: boolean;
   noComments: boolean;
+  indexOfComment: number;
 
-  constructor(private route: ActivatedRoute, private profileService: ProfileService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService) {
+   }
 
   ngOnInit() {
     this.noUserFound = false;
     this.noMovies = false;
     this.noShows = false;
     this.noComments = false;
+    this.comments = [];
+    this.movies = [];
+    this.shows = [];
+    
     this.route.params.subscribe((params) => {
       this.username = params.username;
       this.profileService.getProfile(this.username)
@@ -48,6 +54,19 @@ export class ProfilePageComponent implements OnInit {
         this.shows = user.shows;
         this.comments = user.comments;
       });
+    });
+  }
+
+  handleDeleteComment(comment) {
+    this.indexOfComment = null;
+    this.profileService.deleteComment(comment)
+    .then((commentToDelete) => {
+      this.comments.find((commentOfUser, index) => {
+        if (commentOfUser._id === commentToDelete._id) {
+          this.indexOfComment = index;
+        }
+      });
+      this.comments.splice(this.indexOfComment, 1);
     });
   }
 
