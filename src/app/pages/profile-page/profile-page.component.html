@@ -39,12 +39,16 @@
             <div *ngIf="comment.movie">
               <b>Comment:</b> {{comment.comment}}
               <b>in movie:</b> {{comment.movie.title}}
-              <button class="btn" (click)="handleDeleteComment(comment)">Delete</button>
+              <div *ngIf="userOwnProfile">
+                <button class="btn" (click)="handleDeleteComment(comment)">Delete</button>
+              </div>
             </div>
             <div *ngIf="comment.show">
               <b>Comment:</b> {{comment.comment}}
               <b>in show:</b> {{comment.show.name}}
-              <button class="btn" (click)="handleDeleteComment(comment)">Delete</button>
+              <div *ngIf="userOwnProfile">
+                <button class="btn" (click)="handleDeleteComment(comment)">Delete</button>
+              </div>
             </div>
           </div>
         </div>

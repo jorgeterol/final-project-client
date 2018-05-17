@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,8 +20,11 @@ export class ProfilePageComponent implements OnInit {
   noShows: boolean;
   noComments: boolean;
   indexOfComment: number;
+  currentUser: any;
+  userOwnProfile: boolean;
 
-  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService) {
+  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService, 
+    private authService: AuthService) {
    }
 
   ngOnInit() {
@@ -31,7 +35,8 @@ export class ProfilePageComponent implements OnInit {
     this.comments = [];
     this.movies = [];
     this.shows = [];
-    
+    this.userOwnProfile = false;
+
     this.route.params.subscribe((params) => {
       this.username = params.username;
       this.profileService.getProfile(this.username)
@@ -41,6 +46,10 @@ export class ProfilePageComponent implements OnInit {
           return;
         }
         this.user = user;
+        this.currentUser = this.authService.getUser();
+        if (user.username === this.currentUser.username) {
+          this.userOwnProfile = true;
+        }
         if (user.movies.length === 0) {
           this.noMovies = true;
         }
